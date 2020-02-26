@@ -3,5 +3,4 @@
 .vscode
 compiled
 coverage
-dist
 node_modules
