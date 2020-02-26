@@ -18,16 +18,6 @@ const injectElement = (
 ) => {
   const imgUrl = el.getAttribute('data-src') || el.getAttribute('src')
 
-  /* istanbul ignore else */
-  if (!imgUrl || !/\.svg/i.test(imgUrl)) {
-    callback(
-      new Error(
-        'Attempted to inject a file with a non-svg extension: ' + imgUrl
-      )
-    )
-    return
-  }
-
   // Make sure we aren't already in the process of injecting this element to
   // avoid a race condition if multiple injections for the same element are run.
   // :NOTE: Using indexOf() only _after_ we check for SVG support and bail, so
